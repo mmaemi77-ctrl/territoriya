@@ -3,125 +3,202 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>РыбаБар — рыбное кафе в Симферополе | Меню и бронирование столика</title>
-<meta name="description" content="РыбаБар — кафе с свежей рыбой и морепродуктами в центре Симферополя, ул. Сергеева-Ценского, 6. Рейтинг 4.9. Меню онлайн и бронирование столика.">
-<meta property="og:title" content="РыбаБар — рыбное кафе в Симферополе">
-<meta property="og:description" content="Мидии, лазанья с красной рыбой, том ям, барабуля. Забронируйте столик онлайн.">
-<meta property="og:type" content="restaurant">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<title>Рыба Бар — рыбный ресторан в Симферополе | Меню, устрицы, бронь столика</title>
+<meta name="description" content="Рыба Бар — территория рыбы в Симферополе: ул. Горького, 6А и ул. Сергеева-Ценского, 6. Черноморская рыба, устрицы, мидии, «Собери свой улов». Меню онлайн и бронирование столика. Ежедневно 11:00–23:00.">
+<meta name="theme-color" content="#173a7a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Рыба Бар — территория рыбы в Симферополе">
+<meta property="og:description" content="Устрицы, мидии, черноморская рыба и «Собери свой улов». Два заведения в центре. Забронируйте столик онлайн.">
+<meta property="og:image" content="assets/photos/veranda.jpg"><!-- TODO: абсолютный URL после выбора домена -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/montserrat-cyrillic-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"РыбаБар","servesCuisine":["Рыба","Морепродукты"],
-"address":{"@type":"PostalAddress","streetAddress":"ул. Сергеева-Ценского, 6; ул. Горького, 6а","addressLocality":"Симферополь","addressRegion":"Республика Крым","addressCountry":"RU"},
-"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"239"},"openingHours":"Mo-Su 11:00-23:00","acceptsReservations":true}
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Restaurant","name":"Рыба Бар 2.0 · МОА","servesCuisine":["Рыба","Морепродукты","Устрицы"],"telephone":"+79781678213",
+  "address":{"@type":"PostalAddress","streetAddress":"ул. Горького, 6А","addressLocality":"Симферополь","addressRegion":"Республика Крым","addressCountry":"RU"},
+  "openingHours":"Mo-Su 11:00-23:00","acceptsReservations":true,"priceRange":"₽₽","hasMenu":"#menu"},
+ {"@type":"Restaurant","name":"Рыба Бар","servesCuisine":["Рыба","Морепродукты"],"telephone":"+79781833936",
+  "address":{"@type":"PostalAddress","streetAddress":"ул. Сергеева-Ценского, 6","addressLocality":"Симферополь","addressRegion":"Республика Крым","addressCountry":"RU"},
+  "openingHours":"Mo-Su 11:00-23:00","acceptsReservations":true,"priceRange":"₽₽",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"239"}}
+]}
 </script>
 </head>
 <body>
-<header><div class="wrap nav">
- <a class="logo" href="#top">Рыба<span>Бар</span></a>
- <nav><ul id="menuNav">
-  <li><a href="#about">О нас</a></li><li><a href="#menu">Меню</a></li><li><a href="#gallery">Галерея</a></li>
-  <li><a href="#reviews">Отзывы</a></li><li><a href="#contacts">Контакты</a></li>
-  <li><a class="btn" style="padding:8px 18px" href="#book">Забронировать</a></li>
+<a class="skip" href="#main">К содержимому</a>
+<header class="hdr" id="hdr"><div class="wrap nav">
+ <a class="logo" href="#top" aria-label="Рыба Бар — на главную">
+  <span class="logo-box">РЫБА<svg viewBox="0 0 24 40" aria-hidden="true"><path d="M12 2c5 6 6 14 0 24-6-10-5-18 0-24z" fill="#fff"/><path d="M12 26l-5 10h10z" fill="#e5492d"/><circle cx="12" cy="9" r="1.6" fill="#173a7a"/></svg>БАР</span>
+  <span class="logo-tag">территория рыбы</span>
+ </a>
+ <nav aria-label="Основное меню"><ul id="navList">
+  <li><a href="#places">Заведения</a></li><li><a href="#menu">Меню</a></li><li><a href="#offers">Акции</a></li>
+  <li><a href="#gallery">Галерея</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#contacts">Контакты</a></li>
+  <li class="nav-cta"><a class="btn sm" href="#book">Забронировать</a></li>
  </ul></nav>
- <button class="burger" id="burger" aria-label="Меню">☰</button>
+ <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="navList"><span></span><span></span><span></span></button>
 </div></header>
 
-<main id="top">
-<section class="hero">
- <span class="fish" aria-hidden="true">🐟</span>
- <div class="wrap">
-  <div class="badge">⭐ <span id="rate"></span> · гости рекомендуют</div>
-  <h1>Рыба и море<br>на вашем столе</h1>
-  <p>Уютное рыбное кафе в Симферополе, два адреса. Свежие морепродукты, мидии, барабуля и домашняя атмосфера.</p>
-  <div class="btns"><a class="btn" href="#book">Забронировать столик</a><a class="btn ghost" href="#menu">Смотреть меню</a></div>
+<main id="main">
+<section class="hero" id="top">
+ <img class="hero-bg" src="assets/photos/veranda.jpg" alt="" fetchpriority="high">
+ <div class="wrap hero-in">
+  <p class="script">территория рыбы</p>
+  <h1>Рыба Бар</h1>
+  <p class="hero-sub">Черноморская рыба, устрицы, мидии и морепродукты в центре Симферополя. Два уютных заведения: на Горького, 6А и Сергеева-Ценского, 6.</p>
+  <div class="hero-btns"><a class="btn" href="#book">Забронировать столик</a><a class="btn ghost" href="#menu">Смотреть меню</a></div>
+  <ul class="chips">
+   <li>🕚 Ежедневно 11:00–23:00</li><li>🦪 5 сортов устриц</li><li>🎣 «Собери свой улов»</li>
+  </ul>
  </div>
- <svg class="waves" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#f6efe3" d="M0 40c120 30 240 30 360 10s240-30 360-10 240 30 360 10 240-20 360 0v30H0z"/></svg>
 </section>
 
-<section id="about"><div class="wrap">
- <div class="about reveal">
-  <div>
-   <h2>О РыбаБаре</h2>
-   <p class="lead" style="margin-bottom:12px">РыбаБар — кафе с блюдами из рыбы и морепродуктов. У нас два заведения в Симферополе: на ул. Сергеева-Ценского, 6 и на ул. Горького, 6а. Здесь готовят из свежих продуктов, подают порции со вкусом моря и встречают как друзей.</p>
-   <p>Гости особенно любят мидии, лазанью с красной рыбой, том ям и жареную барабулю. Приходите на семейный обед, свидание или встречу с друзьями за бокалом крымского вина.</p>
-   <div class="stats"><div><b id="st1"></b>рейтинг гостей</div><div><b id="st2"></b>отзывов</div><div><b>11–23</b>каждый день</div></div>
+<section id="places"><div class="wrap">
+ <p class="kicker">Рыбная семья</p>
+ <h2>Наши заведения</h2>
+ <p class="lead">Выберите, куда хотите прийти: в каждом своя атмосфера, но одинаково свежая рыба и тёплый приём.</p>
+ <div class="places" id="placesList"></div>
+</div></section>
+
+<section class="why"><div class="wrap">
+ <div class="why-grid">
+  <article class="feat"><span class="feat-ic" aria-hidden="true">🎣</span><h3>Собери свой улов</h3><p>Выберите ставриду, барабулю, пикшу, мидии или рапаны на вес — мы пожарим или запечём с вашим соусом.</p></article>
+  <article class="feat"><span class="feat-ic" aria-hidden="true">🦪</span><h3>Устрицы со всего мира</h3><p>Крым, Франция, Намибия, а теперь ещё ЮАР и Китай. От 300 ₽ за штуку.</p></article>
+  <article class="feat"><span class="feat-ic" aria-hidden="true">🍺</span><h3>Ведро рыбы + 2 пива</h3><p>30 жареных рыбок на компанию и два бокала пива в подарок.</p></article>
+  <article class="feat"><span class="feat-ic" aria-hidden="true">🍷</span><h3>Гастроужины и вечера</h3><p>Винные вечера с крымскими винодельнями, гастроужины и праздники — следите за афишей.</p></article>
+ </div>
+</div></section>
+
+<section id="menu" class="menu-sec"><div class="wrap">
+ <p class="kicker">Меню</p>
+ <h2>Что сегодня на столе</h2>
+ <div class="seg" role="tablist" aria-label="Заведение" id="menuLoc"></div>
+ <div class="menu-tools">
+  <input type="search" id="q" placeholder="Найти блюдо: мидии, лосось, том ям…" aria-label="Поиск по меню">
+  <div class="filters">
+   <label class="fchip"><input type="checkbox" id="fHit"> ⭐ Хиты гостей</label>
+   <label class="fchip"><input type="checkbox" id="fSpicy"> 🌶 Острое</label>
   </div>
-  <div class="photo" data-photo="1">Фото зала / интерьера</div>
  </div>
- <div class="grid3 reveal" style="margin-top:40px">
-  <div class="card"><div class="ic">🐟</div><h3>Свежая рыба</h3><p>Рыба и морепродукты каждый день: от черноморской барабули до лосося.</p></div>
-  <div class="card"><div class="ic">🍷</div><h3>Крымское вино</h3><p>Подберём бокал к вашему блюду. Крафтовое пиво и домашние лимонады.</p></div>
-  <div class="card"><div class="ic">💛</div><h3>Уют и сервис</h3><p>Внимательные официанты и удобное расположение в центре города.</p></div>
+ <nav class="cats" id="cats" aria-label="Разделы меню"></nav>
+ <div id="menuBody" aria-live="polite"></div>
+ <p class="note">Если у вас есть аллергия, предупредите официанта. Цены и наличие могут меняться — актуальное уточняйте в заведении.</p>
+</div></section>
+
+<section id="offers" class="offers"><div class="wrap">
+ <p class="kicker light">Акции и предложения</p>
+ <h2>Выгодно и вкусно</h2>
+ <div class="offer-grid">
+  <article class="offer"><span class="ribbon">Горького, 6А</span><h3>Ведро рыбы</h3><p class="big">от 700 ₽</p><p>30 шт. ставридки, барабули, пикши или микс рыбы. <b>2 бокала пива в подарок!</b></p></article>
+  <article class="offer"><h3>Настойки за ВМФ</h3>
+   <ul class="ranks"><li><span>Матрос · 6 шт.</span><b>1 000 ₽</b></li><li><span>Мичман · 12 шт.</span><b>2 000 ₽</b></li><li><span>Адмирал · 24 шт.</span><b>4 400 ₽</b></li></ul>
+   <p class="small">Ассортимент уточните у официанта</p></article>
+  <article class="offer"><span class="ribbon">Горького, 6А</span><h3>Десерт дня</h3><p class="big">350 ₽</p><p>Каждый день — новый. Спросите у официанта, что сегодня.</p></article>
+  <article class="offer"><h3>Улов дня</h3><p class="big">🐟</p><p>Свежая рыба, которая пришла сегодня. Цену и вес подскажет официант.</p></article>
  </div>
 </div></section>
 
-<section id="menu"><div class="wrap">
- <h2>Меню</h2><p class="lead">Выберите раздел или найдите блюдо по названию. Нажмите «хит», чтобы увидеть любимые блюда гостей.</p>
- <div class="tools"><input type="search" id="q" placeholder="Поиск: мидии, лосось, суп…" aria-label="Поиск по меню"><label style="display:flex;align-items:center;gap:8px;margin:0"><input type="checkbox" id="hitOnly" style="width:auto"> только хиты</label></div>
- <div class="tabs" id="tabs"></div>
- <div class="dishes" id="dishes"></div>
- <p class="note">* Цены и состав актуальны на момент публикации и могут меняться. Уточняйте у администратора.</p>
+<section class="events"><div class="wrap">
+ <p class="kicker">Афиша</p>
+ <h2>События в Рыба Баре</h2>
+ <div class="ev-grid">
+  <article class="ev"><span class="ev-ic" aria-hidden="true">🍷</span><h3>Винные вечера</h3><p>Дегустации с крымскими винодельнями — например, «Винное казино» с Agora Winery: лёгкие закуски, игра и вино.</p></article>
+  <article class="ev"><span class="ev-ic" aria-hidden="true">👨‍🍳</span><h3>Гастроужины</h3><p>Сеты от шефа с сезонной рыбой и морепродуктами. Количество мест ограничено.</p></article>
+  <article class="ev"><span class="ev-ic" aria-hidden="true">🎉</span><h3>Ваш праздник</h3><p>День рождения, свидание или встреча с друзьями — подготовим стол и поможем с меню.</p></article>
+ </div>
+ <p class="ev-cta">Даты ближайших событий — в нашем <a id="igLink2" target="_blank" rel="noopener">Instagram*</a>. <a class="btn sm" href="#book">Забронировать место</a></p>
 </div></section>
 
-<section id="gallery" class="dark"><div class="wrap">
- <h2>Галерея</h2><p class="lead">Атмосфера, блюда и уют РыбаБара.</p>
+<section id="gallery" class="gal-sec"><div class="wrap">
+ <p class="kicker light">Галерея</p>
+ <h2>Атмосфера и блюда</h2>
  <div class="gallery" id="gal"></div>
 </div></section>
 
-<section id="book"><div class="wrap">
- <div class="book">
-  <div class="reveal">
-   <h2>Забронировать столик</h2>
-   <p class="lead">Выберите дату, время и количество гостей. Мы подтвердим бронь по телефону или в мессенджере.</p>
-   <ul style="list-style:none;padding:0;display:grid;gap:10px">
-    <li>🕐 <span id="hrs"></span></li><li>📍 <span id="adr"></span></li><li>📞 <a id="phoneLink" href="#"></a></li>
-    <li>🎉 Банкеты, дни рождения, корпоративы — уточняйте по телефону</li>
-   </ul>
+<section id="book" class="book-sec"><div class="wrap book">
+ <div class="book-info">
+  <p class="kicker">Бронирование</p>
+  <h2>Забронировать столик</h2>
+  <p class="lead">Выберите заведение, дату и время — администратор перезвонит или ответит в мессенджере, чтобы подтвердить бронь.</p>
+  <ul class="info-list" id="bookInfo"></ul>
+  <p class="small">Компания больше 12 человек или банкет? Лучше позвоните — подберём зал и меню.</p>
+ </div>
+ <form class="form" id="form" novalidate>
+  <fieldset><legend>Заведение</legend><div class="seg" id="bookLoc"></div></fieldset>
+  <div class="row">
+   <div><label for="date">Дата</label><input type="date" id="date" required></div>
+   <div><label for="guests">Гостей</label><select id="guests"></select></div>
   </div>
-  <form class="form" id="form" novalidate>
-   <div><label for="loc">Заведение</label><select id="loc"></select></div>
-   <div class="row"><div><label for="date">Дата</label><input type="date" id="date" required></div>
-   <div><label for="guests">Гостей</label><select id="guests"></select></div></div>
-   <div><label>Время</label><div class="slots" id="slots"></div></div>
-   <div class="row"><div><label for="name">Имя</label><input id="name" autocomplete="name" required></div>
-   <div><label for="tel">Телефон</label><input id="tel" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></div></div>
-   <div><label for="comment">Пожелания</label><textarea id="comment" rows="2" placeholder="Детский стул, у окна, повод…"></textarea></div>
-   <div class="err" id="err" role="alert"></div>
-   <button class="btn" type="submit">Отправить заявку</button>
-   <div class="ok" id="ok"><b>Заявка сформирована!</b><p id="okText"></p>
-    <a class="btn" id="waBtn" target="_blank" rel="noopener">Отправить в WhatsApp</a><a class="btn" id="tgBtn" target="_blank" rel="noopener" style="background:var(--sea)">В Telegram</a></div>
-  </form>
- </div>
+  <fieldset><legend>Время</legend><div class="slots" id="slots"></div><p class="small" id="noSlots" hidden>На сегодня свободного времени для онлайн-брони уже нет — выберите другую дату или позвоните.</p></fieldset>
+  <div class="row">
+   <div><label for="name">Имя</label><input id="name" autocomplete="given-name" required></div>
+   <div><label for="tel">Телефон</label><input id="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></div>
+  </div>
+  <div><label for="comment">Пожелания</label><textarea id="comment" rows="2" placeholder="Повод, детский стульчик, столик у окна…"></textarea></div>
+  <label class="agree"><input type="checkbox" id="agree"> <span>Я согласен(на) на обработку персональных данных согласно <a href="privacy.html" target="_blank">политике конфиденциальности</a></span></label>
+  <p class="err" id="err" role="alert"></p>
+  <button class="btn wide" type="submit">Отправить заявку</button>
+  <div class="ok" id="ok" hidden tabindex="-1">
+   <h3>Почти готово!</h3>
+   <p id="okText"></p>
+   <div class="ok-btns">
+    <a class="btn sm wa" id="waBtn" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+    <a class="btn sm tg" id="tgBtn" target="_blank" rel="noopener" hidden>В Telegram</a>
+    <a class="btn sm ghost-dark" id="callBtn">Позвонить</a>
+    <button class="btn sm ghost-dark" type="button" id="copyBtn">Скопировать заявку</button>
+   </div>
+   <p class="small">Бронь действует после подтверждения администратором.</p>
+  </div>
+ </form>
 </div></section>
 
-<section id="reviews" class="dark"><div class="wrap">
- <h2>Что любят гости</h2><p class="lead">По отзывам посетителей на картах и в сервисах рекомендаций.</p>
- <div class="rev reveal">
-  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Мидии</h3><p>Одно из самых часто хвалимых блюд в отзывах.</p></div>
-  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Лазанья с красной рыбой</h3><p>Необычное и очень вкусное сочетание, о котором пишут гости.</p></div>
-  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Том ям и барабуля</h3><p>Любимые блюда постоянных гостей.</p></div>
-  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Расположение и сервис</h3><p>Удобно добираться, внимательное обслуживание.</p></div>
- </div>
+<section id="reviews"><div class="wrap">
+ <p class="kicker">Отзывы</p>
+ <h2>Что говорят гости</h2>
+ <ul class="praise">
+  <li>Мидии</li><li>Том Ям</li><li>Барабуля</li><li>Лазанья с красной рыбой</li><li>Внимательный сервис</li><li>Удобное расположение</li>
+ </ul>
+ <div class="seg" id="revLoc"></div>
+ <div class="rev-box"><iframe id="revFrame" title="Отзывы на Яндекс Картах" loading="lazy"></iframe></div>
+ <p class="small"><a id="revLink" target="_blank" rel="noopener">Все отзывы и оценки на Яндекс Картах →</a></p>
 </div></section>
 
-<section><div class="wrap faq">
- <h2>Частые вопросы</h2><br>
- <details><summary>Нужно ли бронировать столик?</summary><p>В выходные и вечером лучше забронировать заранее — через форму выше или по телефону.</p></details>
- <details><summary>Есть ли доставка и заказ с собой?</summary><p>Уточняйте у администратора по телефону.</p></details>
- <details><summary>Можно ли с детьми?</summary><p>Да, мы рады гостям с детьми. Детский стул подготовим по запросу.</p></details>
- <details><summary>Принимаете карты и СБП?</summary><p>Да, оплата наличными, картой и по СБП.</p></details>
+<section class="faq-sec"><div class="wrap faq">
+ <p class="kicker">Вопросы</p>
+ <h2>Частые вопросы</h2>
+ <details><summary>Нужно ли бронировать столик?</summary><p>Вечером и в выходные — лучше да. Оставьте заявку на сайте или позвоните в нужное заведение.</p></details>
+ <details><summary>Как работает «Собери свой улов»?</summary><p>Выбираете рыбу или морепродукты на вес (цены указаны за 100 г), способ приготовления — жарим или запекаем — и соус. Готовим при вас.</p></details>
+ <details><summary>Можно прийти с детьми?</summary><p>Конечно. Для маленьких гостей есть детские пельмени с индейкой, детский стульчик подготовим по просьбе — укажите в пожеланиях к брони.</p></details>
+ <details><summary>У меня аллергия — что делать?</summary><p>Обязательно предупредите официанта: подскажем блюда без нужных ингредиентов.</p></details>
+ <details><summary>Можно отметить у вас праздник?</summary><p>Да, позвоните в заведение — обсудим количество гостей, меню и пожелания.</p></details>
 </div></section>
 
-<section id="contacts"><div class="wrap">
- <h2>Контакты</h2><br>
- <div id="locs" class="contacts-list"></div>
- <p style="margin-top:20px"><a class="btn" id="wa" target="_blank" rel="noopener" style="background:#25a244">WhatsApp</a> <a class="btn" id="tg" target="_blank" rel="noopener" style="background:var(--sea)">Telegram</a></p>
- <p style="margin-top:14px"><a href="https://yandex.ru/maps/org/rybabar/146988495562" target="_blank" rel="noopener">Отзывы на Яндекс Картах →</a></p>
+<section id="contacts" class="contacts-sec"><div class="wrap">
+ <p class="kicker">Контакты</p>
+ <h2>Как нас найти</h2>
+ <div class="contacts" id="contactsList"></div>
 </div></section>
 </main>
 
-<footer><div class="wrap">© <span id="yr"></span> РыбаБар, Симферополь. Республика Крым.</div></footer>
-<a class="btn fab" href="#book">Забронировать</a>
+<footer class="ftr"><div class="wrap ftr-in">
+ <div><span class="logo-box small">РЫБА·БАР</span><p class="script light">территория рыбы</p></div>
+ <div id="ftrLocs"></div>
+ <div><a id="igLink" target="_blank" rel="noopener">Instagram* @territoriya_r</a><br><a href="privacy.html">Политика конфиденциальности</a></div>
+</div>
+<div class="wrap ftr-note">© <span id="yr"></span> Рыба Бар, Симферополь, Республика Крым.<br>* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</div>
+</footer>
+
+<div class="mbar" id="mbar"><a class="btn ghost-dark" href="#contacts">📞 Позвонить</a><a class="btn" href="#book">Забронировать</a></div>
+
+<dialog class="lb" id="lb" aria-label="Просмотр фото">
+ <button class="lb-x" id="lbX" aria-label="Закрыть">×</button>
+ <button class="lb-nav prev" id="lbP" aria-label="Предыдущее фото">‹</button>
+ <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+ <button class="lb-nav next" id="lbN" aria-label="Следующее фото">›</button>
+</dialog>
+
 <script src="assets/config.js"></script><script src="assets/menu.js"></script><script src="assets/script.js"></script>
-</body></html>
+</body>
+</html>
