@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="assets/style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"РыбаБар","servesCuisine":["Рыба","Морепродукты"],
-"address":{"@type":"PostalAddress","streetAddress":"ул. Сергеева-Ценского, 6","addressLocality":"Симферополь","addressRegion":"Республика Крым","addressCountry":"RU"},
+"address":{"@type":"PostalAddress","streetAddress":"ул. Сергеева-Ценского, 6; ул. Горького, 6а","addressLocality":"Симферополь","addressRegion":"Республика Крым","addressCountry":"RU"},
 "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"239"},"openingHours":"Mo-Su 11:00-23:00","acceptsReservations":true}
 </script>
 </head>
@@ -33,7 +33,7 @@
  <div class="wrap">
   <div class="badge">⭐ <span id="rate"></span> · гости рекомендуют</div>
   <h1>Рыба и море<br>на вашем столе</h1>
-  <p>Уютное рыбное кафе в центре Симферополя. Свежие морепродукты, мидии, барабуля и домашняя атмосфера.</p>
+  <p>Уютное рыбное кафе в Симферополе, два адреса. Свежие морепродукты, мидии, барабуля и домашняя атмосфера.</p>
   <div class="btns"><a class="btn" href="#book">Забронировать столик</a><a class="btn ghost" href="#menu">Смотреть меню</a></div>
  </div>
  <svg class="waves" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#f6efe3" d="M0 40c120 30 240 30 360 10s240-30 360-10 240 30 360 10 240-20 360 0v30H0z"/></svg>
@@ -43,7 +43,7 @@
  <div class="about reveal">
   <div>
    <h2>О РыбаБаре</h2>
-   <p class="lead" style="margin-bottom:12px">РыбаБар — кафе с блюдами из рыбы и морепродуктов в самом центре Симферополя. Здесь готовят из свежих продуктов, подают порции со вкусом моря и встречают как друзей.</p>
+   <p class="lead" style="margin-bottom:12px">РыбаБар — кафе с блюдами из рыбы и морепродуктов. У нас два заведения в Симферополе: на ул. Сергеева-Ценского, 6 и на ул. Горького, 6а. Здесь готовят из свежих продуктов, подают порции со вкусом моря и встречают как друзей.</p>
    <p>Гости особенно любят мидии, лазанью с красной рыбой, том ям и жареную барабулю. Приходите на семейный обед, свидание или встречу с друзьями за бокалом крымского вина.</p>
    <div class="stats"><div><b id="st1"></b>рейтинг гостей</div><div><b id="st2"></b>отзывов</div><div><b>11–23</b>каждый день</div></div>
   </div>
@@ -80,6 +80,7 @@
    </ul>
   </div>
   <form class="form" id="form" novalidate>
+   <div><label for="loc">Заведение</label><select id="loc"></select></div>
    <div class="row"><div><label for="date">Дата</label><input type="date" id="date" required></div>
    <div><label for="guests">Гостей</label><select id="guests"></select></div></div>
    <div><label>Время</label><div class="slots" id="slots"></div></div>
@@ -114,15 +115,9 @@
 
 <section id="contacts"><div class="wrap">
  <h2>Контакты</h2><br>
- <div class="contacts">
-  <ul style="padding:0">
-   <li>📍 <b id="c1"></b></li><li>🕐 <span id="c2"></span></li><li>📞 <a id="c3" href="#"></a></li>
-   <li>💬 <a id="c4" target="_blank" rel="noopener">WhatsApp</a> · <a id="c5" target="_blank" rel="noopener">Telegram</a></li>
-   <li><a class="btn" id="route" target="_blank" rel="noopener">Построить маршрут</a></li>
-   <li><a href="https://yandex.ru/maps/org/rybabar/146988495562" target="_blank" rel="noopener">Отзывы на Яндекс Картах →</a></li>
-  </ul>
-  <iframe id="map" title="Карта" loading="lazy"></iframe>
- </div>
+ <div id="locs" class="contacts-list"></div>
+ <p style="margin-top:20px"><a class="btn" id="wa" target="_blank" rel="noopener" style="background:#25a244">WhatsApp</a> <a class="btn" id="tg" target="_blank" rel="noopener" style="background:var(--sea)">Telegram</a></p>
+ <p style="margin-top:14px"><a href="https://yandex.ru/maps/org/rybabar/146988495562" target="_blank" rel="noopener">Отзывы на Яндекс Картах →</a></p>
 </div></section>
 </main>
 

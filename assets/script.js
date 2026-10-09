@@ -1,12 +1,15 @@
 const C=window.CAFE,M=window.MENU,$=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // контакты
+const L=C.locations,loc=$('#loc');
 $('#rate').textContent=`${C.rating} · ${C.reviews} отзывов`;$('#st1').textContent=C.rating;$('#st2').textContent=C.reviews;
-$('#hrs').textContent=$('#c2').textContent=C.hours;$('#adr').textContent=$('#c1').textContent=C.address;
-for(const s of ['#phoneLink','#c3']){$(s).textContent=C.phone;$(s).href='tel:'+C.phoneRaw}
-$('#c4').href='https://wa.me/'+C.whatsapp;$('#c5').href='https://t.me/'+C.telegram;
-$('#route').href='https://yandex.ru/maps/?rtext=~'+C.mapLat+','+C.mapLon+'&rtt=auto';
-const d=.004;$('#map').src=`https://www.openstreetmap.org/export/embed.html?bbox=${C.mapLon-d},${C.mapLat-d},${C.mapLon+d},${C.mapLat+d}&marker=${C.mapLat},${C.mapLon}`;
+loc.innerHTML=L.map(l=>`<option value="${l.id}">${esc(l.address.replace('Симферополь, ',''))}</option>`).join('');
+const cur=()=>L.find(l=>l.id===loc.value);
+function showLoc(){const l=cur();$('#hrs').textContent=l.hours;$('#adr').textContent=l.address;$('#phoneLink').textContent=l.phone;$('#phoneLink').href='tel:'+l.phoneRaw}
+$('#locs').innerHTML=L.map(l=>{const d=.004;return `<div class="loc"><h3>${esc(l.title)}</h3><p>📍 <b>${esc(l.address)}</b></p><p>🕐 ${esc(l.hours)}</p><p>📞 <a href="tel:${l.phoneRaw}">${esc(l.phone)}</a></p>
+<iframe title="Карта: ${esc(l.address)}" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=${l.lon-d},${l.lat-d},${l.lon+d},${l.lat+d}&marker=${l.lat},${l.lon}"></iframe>
+<a class="btn" target="_blank" rel="noopener" href="https://yandex.ru/maps/?rtext=~${l.lat},${l.lon}&rtt=auto">Построить маршрут</a></div>`}).join('');
+$('#wa').href='https://wa.me/'+C.whatsapp;$('#tg').href='https://t.me/'+C.telegram;
 $('#yr').textContent=new Date().getFullYear();
 $('#burger').onclick=()=>$('#menuNav').classList.toggle('open');
 document.querySelectorAll('#menuNav a').forEach(a=>a.onclick=()=>$('#menuNav').classList.remove('open'));
@@ -34,12 +37,12 @@ date.min=date.value=iso(new Date());date.max=iso(new Date(Date.now()+60*864e5));
 g.innerHTML=Array.from({length:C.maxGuests},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join('')+'<option value="13+">Больше 12</option>';g.value='2';
 function drawSlots(){
  const now=new Date(),today=date.value===iso(now);time='';let h='';
- for(let t=C.open*60;t<=C.close*60-60;t+=30){const lab=`${pad(Math.floor(t/60))}:${pad(t%60)}`;
+ const lc=cur();for(let t=lc.open*60;t<=lc.close*60-60;t+=30){const lab=`${pad(Math.floor(t/60))}:${pad(t%60)}`;
   const off=today&&t<=now.getHours()*60+now.getMinutes()+30;h+=`<button type="button" class="slot" ${off?'disabled':''}>${lab}</button>`}
  slots.innerHTML=h||'';
 }
 slots.onclick=e=>{if(e.target.classList.contains('slot')&&!e.target.disabled){slots.querySelectorAll('.slot').forEach(s=>s.classList.remove('on'));e.target.classList.add('on');time=e.target.textContent}};
-date.onchange=drawSlots;drawSlots();
+date.onchange=drawSlots;loc.onchange=()=>{showLoc();drawSlots()};showLoc();drawSlots();
 $('#form').onsubmit=e=>{
  e.preventDefault();const err=$('#err'),name=$('#name').value.trim(),tel=$('#tel').value.trim();
  if(!date.value)return err.textContent='Выберите дату';
@@ -48,8 +51,8 @@ $('#form').onsubmit=e=>{
  if(tel.replace(/\D/g,'').length<10)return err.textContent='Укажите корректный телефон';
  err.textContent='';
  const [y,m,dd]=date.value.split('-'),dt=`${dd}.${m}.${y}`;
- const msg=`Здравствуйте! Хочу забронировать столик в РыбаБаре.\nДата: ${dt}\nВремя: ${time}\nГостей: ${g.value}\nИмя: ${name}\nТелефон: ${tel}${$('#comment').value?'\nПожелания: '+$('#comment').value:''}`;
- try{const a=JSON.parse(localStorage.getItem('rb_bookings')||'[]');a.push({dt,time,guests:g.value,name,tel});localStorage.setItem('rb_bookings',JSON.stringify(a))}catch{}
+ const msg=`Здравствуйте! Хочу забронировать столик в РыбаБаре (${cur().address}).\nДата: ${dt}\nВремя: ${time}\nГостей: ${g.value}\nИмя: ${name}\nТелефон: ${tel}${$('#comment').value?'\nПожелания: '+$('#comment').value:''}`;
+ try{const a=JSON.parse(localStorage.getItem('rb_bookings')||'[]');a.push({loc:loc.value,dt,time,guests:g.value,name,tel});localStorage.setItem('rb_bookings',JSON.stringify(a))}catch{}
  $('#okText').textContent=`${dt} в ${time}, гостей: ${g.value}. Отправьте заявку в мессенджер — администратор подтвердит бронь.`;
  $('#waBtn').href='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent(msg);
  $('#tgBtn').href='https://t.me/'+C.telegram+'?text='+encodeURIComponent(msg);
