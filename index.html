@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>РыбаБар — рыбное кафе в Симферополе | Меню и бронирование столика</title>
+<meta name="description" content="РыбаБар — кафе с свежей рыбой и морепродуктами в центре Симферополя, ул. Сергеева-Ценского, 6. Рейтинг 4.9. Меню онлайн и бронирование столика.">
+<meta property="og:title" content="РыбаБар — рыбное кафе в Симферополе">
+<meta property="og:description" content="Мидии, лазанья с красной рыбой, том ям, барабуля. Забронируйте столик онлайн.">
+<meta property="og:type" content="restaurant">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"РыбаБар","servesCuisine":["Рыба","Морепродукты"],
+"address":{"@type":"PostalAddress","streetAddress":"ул. Сергеева-Ценского, 6","addressLocality":"Симферополь","addressRegion":"Республика Крым","addressCountry":"RU"},
+"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"239"},"openingHours":"Mo-Su 11:00-23:00","acceptsReservations":true}
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="#top">Рыба<span>Бар</span></a>
+ <nav><ul id="menuNav">
+  <li><a href="#about">О нас</a></li><li><a href="#menu">Меню</a></li><li><a href="#gallery">Галерея</a></li>
+  <li><a href="#reviews">Отзывы</a></li><li><a href="#contacts">Контакты</a></li>
+  <li><a class="btn" style="padding:8px 18px" href="#book">Забронировать</a></li>
+ </ul></nav>
+ <button class="burger" id="burger" aria-label="Меню">☰</button>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <span class="fish" aria-hidden="true">🐟</span>
+ <div class="wrap">
+  <div class="badge">⭐ <span id="rate"></span> · гости рекомендуют</div>
+  <h1>Рыба и море<br>на вашем столе</h1>
+  <p>Уютное рыбное кафе в центре Симферополя. Свежие морепродукты, мидии, барабуля и домашняя атмосфера.</p>
+  <div class="btns"><a class="btn" href="#book">Забронировать столик</a><a class="btn ghost" href="#menu">Смотреть меню</a></div>
+ </div>
+ <svg class="waves" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#f6efe3" d="M0 40c120 30 240 30 360 10s240-30 360-10 240 30 360 10 240-20 360 0v30H0z"/></svg>
+</section>
+
+<section id="about"><div class="wrap">
+ <div class="about reveal">
+  <div>
+   <h2>О РыбаБаре</h2>
+   <p class="lead" style="margin-bottom:12px">РыбаБар — кафе с блюдами из рыбы и морепродуктов в самом центре Симферополя. Здесь готовят из свежих продуктов, подают порции со вкусом моря и встречают как друзей.</p>
+   <p>Гости особенно любят мидии, лазанью с красной рыбой, том ям и жареную барабулю. Приходите на семейный обед, свидание или встречу с друзьями за бокалом крымского вина.</p>
+   <div class="stats"><div><b id="st1"></b>рейтинг гостей</div><div><b id="st2"></b>отзывов</div><div><b>11–23</b>каждый день</div></div>
+  </div>
+  <div class="photo" data-photo="1">Фото зала / интерьера</div>
+ </div>
+ <div class="grid3 reveal" style="margin-top:40px">
+  <div class="card"><div class="ic">🐟</div><h3>Свежая рыба</h3><p>Рыба и морепродукты каждый день: от черноморской барабули до лосося.</p></div>
+  <div class="card"><div class="ic">🍷</div><h3>Крымское вино</h3><p>Подберём бокал к вашему блюду. Крафтовое пиво и домашние лимонады.</p></div>
+  <div class="card"><div class="ic">💛</div><h3>Уют и сервис</h3><p>Внимательные официанты и удобное расположение в центре города.</p></div>
+ </div>
+</div></section>
+
+<section id="menu"><div class="wrap">
+ <h2>Меню</h2><p class="lead">Выберите раздел или найдите блюдо по названию. Нажмите «хит», чтобы увидеть любимые блюда гостей.</p>
+ <div class="tools"><input type="search" id="q" placeholder="Поиск: мидии, лосось, суп…" aria-label="Поиск по меню"><label style="display:flex;align-items:center;gap:8px;margin:0"><input type="checkbox" id="hitOnly" style="width:auto"> только хиты</label></div>
+ <div class="tabs" id="tabs"></div>
+ <div class="dishes" id="dishes"></div>
+ <p class="note">* Цены и состав актуальны на момент публикации и могут меняться. Уточняйте у администратора.</p>
+</div></section>
+
+<section id="gallery" class="dark"><div class="wrap">
+ <h2>Галерея</h2><p class="lead">Атмосфера, блюда и уют РыбаБара.</p>
+ <div class="gallery" id="gal"></div>
+</div></section>
+
+<section id="book"><div class="wrap">
+ <div class="book">
+  <div class="reveal">
+   <h2>Забронировать столик</h2>
+   <p class="lead">Выберите дату, время и количество гостей. Мы подтвердим бронь по телефону или в мессенджере.</p>
+   <ul style="list-style:none;padding:0;display:grid;gap:10px">
+    <li>🕐 <span id="hrs"></span></li><li>📍 <span id="adr"></span></li><li>📞 <a id="phoneLink" href="#"></a></li>
+    <li>🎉 Банкеты, дни рождения, корпоративы — уточняйте по телефону</li>
+   </ul>
+  </div>
+  <form class="form" id="form" novalidate>
+   <div class="row"><div><label for="date">Дата</label><input type="date" id="date" required></div>
+   <div><label for="guests">Гостей</label><select id="guests"></select></div></div>
+   <div><label>Время</label><div class="slots" id="slots"></div></div>
+   <div class="row"><div><label for="name">Имя</label><input id="name" autocomplete="name" required></div>
+   <div><label for="tel">Телефон</label><input id="tel" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></div></div>
+   <div><label for="comment">Пожелания</label><textarea id="comment" rows="2" placeholder="Детский стул, у окна, повод…"></textarea></div>
+   <div class="err" id="err" role="alert"></div>
+   <button class="btn" type="submit">Отправить заявку</button>
+   <div class="ok" id="ok"><b>Заявка сформирована!</b><p id="okText"></p>
+    <a class="btn" id="waBtn" target="_blank" rel="noopener">Отправить в WhatsApp</a><a class="btn" id="tgBtn" target="_blank" rel="noopener" style="background:var(--sea)">В Telegram</a></div>
+  </form>
+ </div>
+</div></section>
+
+<section id="reviews" class="dark"><div class="wrap">
+ <h2>Что любят гости</h2><p class="lead">По отзывам посетителей на картах и в сервисах рекомендаций.</p>
+ <div class="rev reveal">
+  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Мидии</h3><p>Одно из самых часто хвалимых блюд в отзывах.</p></div>
+  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Лазанья с красной рыбой</h3><p>Необычное и очень вкусное сочетание, о котором пишут гости.</p></div>
+  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Том ям и барабуля</h3><p>Любимые блюда постоянных гостей.</p></div>
+  <div class="card" style="color:var(--ink)"><div class="stars">★★★★★</div><h3>Расположение и сервис</h3><p>Удобно добираться, внимательное обслуживание.</p></div>
+ </div>
+</div></section>
+
+<section><div class="wrap faq">
+ <h2>Частые вопросы</h2><br>
+ <details><summary>Нужно ли бронировать столик?</summary><p>В выходные и вечером лучше забронировать заранее — через форму выше или по телефону.</p></details>
+ <details><summary>Есть ли доставка и заказ с собой?</summary><p>Уточняйте у администратора по телефону.</p></details>
+ <details><summary>Можно ли с детьми?</summary><p>Да, мы рады гостям с детьми. Детский стул подготовим по запросу.</p></details>
+ <details><summary>Принимаете карты и СБП?</summary><p>Да, оплата наличными, картой и по СБП.</p></details>
+</div></section>
+
+<section id="contacts"><div class="wrap">
+ <h2>Контакты</h2><br>
+ <div class="contacts">
+  <ul style="padding:0">
+   <li>📍 <b id="c1"></b></li><li>🕐 <span id="c2"></span></li><li>📞 <a id="c3" href="#"></a></li>
+   <li>💬 <a id="c4" target="_blank" rel="noopener">WhatsApp</a> · <a id="c5" target="_blank" rel="noopener">Telegram</a></li>
+   <li><a class="btn" id="route" target="_blank" rel="noopener">Построить маршрут</a></li>
+   <li><a href="https://yandex.ru/maps/org/rybabar/146988495562" target="_blank" rel="noopener">Отзывы на Яндекс Картах →</a></li>
+  </ul>
+  <iframe id="map" title="Карта" loading="lazy"></iframe>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> РыбаБар, Симферополь. Республика Крым.</div></footer>
+<a class="btn fab" href="#book">Забронировать</a>
+<script src="assets/config.js"></script><script src="assets/menu.js"></script><script src="assets/script.js"></script>
+</body></html>
