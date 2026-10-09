@@ -8,6 +8,12 @@ const ymOrg = l => `https://yandex.ru/maps/org/${l.yandexSlug}/${l.yandexId}/`;
 const ig = 'https://www.instagram.com/' + C.instagram + '/';
 const ph = f => (window.PHOTOS && window.PHOTOS[f]) || 'assets/photos/' + f;  // PHOTOS — для однофайлового превью
 
+/* ---------- видео на первом экране (если задано в config.js) ---------- */
+if (C.heroVideo && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const v = Object.assign(document.createElement('video'), {src: C.heroVideo, muted: true, loop: true, autoplay: true, playsInline: true, className: 'hero-bg'});
+  v.setAttribute('aria-hidden', 'true'); v.poster = $('.hero-bg').src; $('.hero-bg').replaceWith(v);
+}
+
 /* ---------- шапка ---------- */
 const hdr = $('#hdr'), burger = $('#burger'), navList = $('#navList');
 const onScroll = () => {

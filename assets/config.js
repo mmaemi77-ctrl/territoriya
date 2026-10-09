@@ -5,6 +5,7 @@ window.CAFE = {
   instagram: "territoriya_r",
   telegram: "",          // TODO: если есть Telegram для брони — указать ник без @
   maxGuests: 12,
+  heroVideo: "",         // необязательно: путь к ролику для первого экрана (mp4, без звука, до ~4 МБ), напр. "assets/video/hero.mp4"
   locations: [
     {id:"g", short:"Горького, 6А", title:"Рыба Бар 2.0 · МОА", address:"Симферополь, ул. Горького, 6А",
      phone:"+7 (978) 167-82-13", phoneRaw:"+79781678213", whatsapp:"79781678213",
