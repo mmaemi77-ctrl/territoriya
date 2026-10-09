@@ -40,6 +40,11 @@
  <symbol id="i-boat" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 6v40M30 8L13 40h17M34 14l16 26H34M30 6h8l-2 4h-6M7 46h50l-7 9H14zM4 60c5-3 9-3 14 0s9 3 14 0 9-3 14 0 9 3 14 0"/></symbol>
  <symbol id="i-sun" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="32" cy="32" r="12"/><path d="M32 6v8M32 50v8M6 32h8M50 32h8M13.6 13.6l5.7 5.7M44.7 44.7l5.7 5.7M13.6 50.4l5.7-5.7M44.7 19.3l5.7-5.7M26 28c2-3 5-4 8-3"/></symbol>
  <symbol id="i-chef" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 38c-8 0-12-6-10-12 2-5 8-7 12-4 1-7 7-11 13-9 5-5 15-2 16 6 6-1 10 5 8 11-2 5-6 7-11 7M20 38v16h26V38M20 46h26M28 38v8M36 38v8"/></symbol>
+ <!-- Иконки соцсетей -->
+ <symbol id="s-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
+ <symbol id="s-wa" viewBox="0 0 24 24"><path d="M12 2.6a9.4 9.4 0 0 0-8.1 14.2L2.6 21.4l4.7-1.2A9.4 9.4 0 1 0 12 2.6z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M8.7 7.4c.3-.5.6-.5.9-.5h.6c.2 0 .5.1.6.4l.8 1.9c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.4.8 1 1.5 1.7 2.1.6.5 1.3.9 2 1.2.2.1.5 0 .6-.1l.8-1c.2-.2.4-.3.7-.2l1.8.9c.3.1.4.3.4.6 0 .6-.2 1.4-.8 1.8-.6.5-1.5.7-2.4.5-1.4-.3-2.8-1.1-4-2.1s-2.2-2.3-2.8-3.6c-.4-.9-.5-1.9-.2-2.8z" fill="currentColor"/></symbol>
+ <symbol id="s-tg" viewBox="0 0 24 24"><path d="M21.6 3.4L2.7 10.6c-.9.4-.9 1.6.1 1.9l4.7 1.5 1.8 5.6c.2.8 1.2 1 1.8.4l2.6-2.5 4.8 3.5c.7.5 1.7.1 1.9-.8l3.1-14.6c.2-1-.7-1.7-1.6-1.3zM9.6 14.3l-.4 4-1.4-4.6 10.1-6.4z" fill="currentColor"/></symbol>
+ <symbol id="s-vk" viewBox="0 0 24 24"><path d="M2.6 6.8h3.3c.3 3.1 1.7 5.2 3.1 5.7V6.8h3.1v3.5c1.4-.2 2.9-1.8 3.4-3.5h3.1c-.5 2.2-2.1 4.1-3.3 4.9 1.2.6 3.2 2.2 3.9 4.8h-3.4c-.6-1.7-2-3-3.7-3.2v3.2h-.4C6.4 16.5 3 13 2.6 6.8z" fill="currentColor"/></symbol>
 </svg>
 <a class="skip" href="#main">К содержимому</a>
 <div class="progress" id="progress" aria-hidden="true"><span class="progress-fish"><svg viewBox="0 0 42 24"><use href="#i-pfish"/></svg></span></div>
@@ -135,7 +140,7 @@
   <article class="ev"><span class="ev-ic" aria-hidden="true"><svg><use href="#i-chef"/></svg></span><h3>Гастроужины</h3><p>Сеты от шефа с сезонной рыбой и морепродуктами. Количество мест ограничено.</p></article>
   <article class="ev"><span class="ev-ic" aria-hidden="true"><svg><use href="#i-star"/></svg></span><h3>Ваш праздник</h3><p>День рождения, свидание или встреча с друзьями — подготовим стол и поможем с меню.</p></article>
  </div>
- <p class="ev-cta">Даты ближайших событий — в нашем <a id="igLink2" target="_blank" rel="noopener">Instagram*</a>. <a class="btn sm" href="#book">Забронировать место</a></p>
+ <div class="ev-cta"><span>Даты ближайших событий — в наших соцсетях:</span><span class="soc-list" data-social="ig"></span><a class="btn sm" href="#book">Забронировать место</a></div>
 </div></section>
 
 <section id="gallery" class="gal-sec"><div class="garland g-right" data-garland="5" aria-hidden="true"></div><div class="wrap"><div class="neon" aria-hidden="true"><svg class="neon-star"><use href="#i-star"/></svg><svg class="neon-shell"><use href="#i-shell"/></svg></div>
@@ -207,15 +212,19 @@
  <p class="kicker">Контакты</p>
  <h2>Как нас найти</h2>
  <div class="contacts" id="contactsList"></div>
+ <div class="social-row"><h3>Мы в соцсетях</h3><div class="soc-list" data-social="all"></div></div>
 </div></section>
 </main>
 
 <footer class="ftr"><div class="wrap ftr-in">
  <div><span class="logo-box small">РЫБА·БАР</span><p class="script light">территория рыбы</p></div>
  <div id="ftrLocs"></div>
- <div><a id="igLink" target="_blank" rel="noopener">Instagram* @territoriya_r</a><br><a href="privacy.html">Политика конфиденциальности</a></div>
+ <div><p class="ftr-h">Мы в соцсетях</p><div class="soc-list col" data-social="all"></div><p class="ftr-priv"><a href="privacy.html">Политика конфиденциальности</a></p></div>
 </div>
-<div class="wrap ftr-note">© <span id="yr"></span> Рыба Бар, Симферополь, Республика Крым.<br>* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</div>
+<div class="wrap ftr-note">
+ <p>© <span id="yr"></span> Рыба Бар, Симферополь, Республика Крым.<br>* Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+ <p class="credit"><span class="formi">FOR.MI</span><span>designed &amp; developed by ABN</span><a href="https://t.me/abanev_dev" target="_blank" rel="noopener" aria-label="Telegram разработчика @abanev_dev"><svg aria-hidden="true"><use href="#s-tg"/></svg>@abanev_dev</a></p>
+</div>
 </footer>
 
 <button class="buoy" id="buoy" type="button" aria-label="Наверх"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="#fff"/><path d="M32 6a26 26 0 0 1 18.4 7.6L41.9 22.1A14 14 0 0 0 32 18zM58 32a26 26 0 0 1-7.6 18.4L41.9 41.9A14 14 0 0 0 46 32zM32 58a26 26 0 0 1-18.4-7.6l8.5-8.5A14 14 0 0 0 32 46zM6 32a26 26 0 0 1 7.6-18.4l8.5 8.5A14 14 0 0 0 18 32z" fill="#e5492d"/><circle cx="32" cy="32" r="14" fill="none" stroke="#173a7a" stroke-width="2"/><circle cx="32" cy="32" r="26" fill="none" stroke="#173a7a" stroke-width="2"/></svg><span>наверх</span></button>

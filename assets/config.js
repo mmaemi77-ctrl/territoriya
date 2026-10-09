@@ -4,6 +4,7 @@ window.CAFE = {
   tagline: "Территория рыбы",
   instagram: "territoriya_r",
   telegram: "",          // TODO: если есть Telegram для брони — указать ник без @
+  vk: "",                // TODO: если есть группа ВКонтакте — указать адрес, напр. "rybabar_simf"
   maxGuests: 12,
   heroVideo: "",         // необязательно: путь к ролику для первого экрана (mp4, без звука, до ~4 МБ), напр. "assets/video/hero.mp4"
   locations: [

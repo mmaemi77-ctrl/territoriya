@@ -214,7 +214,17 @@ $('#contactsList').innerHTML = L.map(l => `
   </div>
  </article>`).join('');
 $('#ftrLocs').innerHTML = L.map(l => `<p><b style="color:#fff">${esc(l.short)}</b> · ${esc(l.hours.replace('Ежедневно, ', 'ежедневно '))}<br><a href="tel:${l.phoneRaw}">${esc(l.phone)}</a></p>`).join('<br>');
-$('#igLink').href = $('#igLink2').href = ig;
+/* ---------- соцсети: иконка + адрес ---------- */
+const SOC = [
+  {k:'ig', icon:'s-ig', name:'Instagram*', handle:'@' + C.instagram, href:ig},
+  C.telegram && {k:'tg', icon:'s-tg', name:'Telegram', handle:'@' + C.telegram, href:'https://t.me/' + C.telegram},
+  C.vk && {k:'vk', icon:'s-vk', name:'ВКонтакте', handle:'vk.com/' + C.vk, href:'https://vk.com/' + C.vk},
+  ...L.map(l => ({k:'wa', icon:'s-wa', name:'WhatsApp · ' + l.short, handle:l.phone, href:'https://wa.me/' + l.whatsapp}))
+].filter(Boolean);
+$$('[data-social]').forEach(el => {
+  const only = el.dataset.social, list = only === 'all' ? SOC : SOC.filter(s => s.k === only);
+  el.innerHTML = list.map(s => `<a class="soc soc-${s.k}" href="${s.href}" target="_blank" rel="noopener"><span class="soc-ic"><svg aria-hidden="true"><use href="#${s.icon}"/></svg></span><span class="soc-txt"><small>${esc(s.name)}</small>${esc(s.handle)}</span></a>`).join('');
+});
 $('#yr').textContent = new Date().getFullYear();
 
 /* ---------- плавное появление ---------- */

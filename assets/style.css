@@ -304,12 +304,37 @@ legend,label{font-size:13px;font-weight:600;color:var(--mut);display:block;margi
 .contact-body h3{color:var(--navy);font-size:21px}
 .contact-body a:not(.btn){color:var(--ink);font-weight:600;text-decoration:none}
 
+/* соцсети */
+.soc-list{display:flex;flex-wrap:wrap;gap:12px}
+.soc-list.col{flex-direction:column;align-items:flex-start;gap:10px}
+.soc{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 16px 6px 6px;transition:transform .2s,box-shadow .2s}
+.soc:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(16,35,63,.12)}
+.soc-ic{width:38px;height:38px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
+.soc-ic svg{width:21px;height:21px}
+.soc-ig .soc-ic{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.soc-wa .soc-ic{background:#25d366}.soc-tg .soc-ic{background:#229ed9}.soc-vk .soc-ic{background:#0077ff}
+.soc-txt{display:flex;flex-direction:column;line-height:1.2;font-weight:600;font-size:14px}
+.soc-txt small{font-size:11px;font-weight:600;color:var(--mut)}
+.social-row{margin-top:30px}
+.social-row h3{color:var(--navy);margin-bottom:14px;font-size:21px}
+.ftr .soc{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#fff;padding:4px 14px 4px 4px}
+.ftr .soc-ic{width:32px;height:32px}.ftr .soc-ic svg{width:18px;height:18px}
+.ftr .soc-txt small{color:#8fa2b8}
+.ftr-h{color:#fff;font-weight:800;margin-bottom:12px}
+.ftr-priv{margin-top:14px}
+.ev-cta .soc-list{flex:none}
+
 /* подвал */
 .ftr{background:var(--ink);color:#b6c3d4;padding:44px 0 28px;font-size:14px}
 .ftr a{color:#fff;text-decoration:none}
 .ftr-in{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:26px;align-items:start}
 .ftr .script{font-size:20px;margin-top:6px}
-.ftr-note{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#7f90a6}
+.ftr-note{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#7f90a6;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.credit{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#9fb0c4;font-size:12px}
+.formi{font-weight:800;letter-spacing:.18em;color:#fff;font-size:13px;padding:4px 10px;border:1px solid rgba(255,255,255,.35);border-radius:6px}
+.credit a{display:inline-flex;align-items:center;gap:6px;color:#fff;font-weight:600}
+.credit a svg{width:16px;height:16px;color:#5ec2f0}
+.credit a:hover{color:#5ec2f0}
 
 /* мобильная панель */
 .mbar{display:none}
