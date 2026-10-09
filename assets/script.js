@@ -59,21 +59,6 @@ document.addEventListener('click', e => {
   const m = e.target.closest('[data-menu]'); if (m) pickMenuLoc(m.dataset.menu);
 });
 
-const S = C.sister;
-if (S) $('#sister').innerHTML = `
-  <div class="sister-logo" aria-hidden="true"><span>МОА·REST</span><small>ресторан</small></div>
-  <div class="sister-body">
-   <p class="sister-kick">Третий проект рыбной семьи</p>
-   <h3>${esc(S.title)} <span>· ${esc(S.sub)}</span></h3>
-   <p>Безлимитные завтраки за 500 ₽ каждый день с 8:00 до 11:00 и дегустации устриц со всего мира.</p>
-   <p class="sister-meta">📍 ${esc(S.address)} · 🕗 ${esc(S.hours)}</p>
-   <div class="place-btns">
-    <a class="btn sm gold" href="https://yandex.ru/maps/org/${S.yandexSlug}/${S.yandexId}/" target="_blank" rel="noopener">На карте</a>
-    <a class="btn sm ghost" href="https://t.me/${S.telegram}" target="_blank" rel="noopener">Telegram</a>
-    <a class="btn sm ghost" href="https://www.instagram.com/${S.instagram}/" target="_blank" rel="noopener">Instagram*</a>
-   </div>
-  </div>`;
-
 /* ---------- меню ---------- */
 let menuLoc = 'g';
 const setMenuSeg = seg($('#menuLoc'), menuLoc, id => pickMenuLoc(id, true));
@@ -235,6 +220,6 @@ $('#yr').textContent = new Date().getFullYear();
 /* ---------- плавное появление ---------- */
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.12});
-  $$('.place, .sister, .feat, .offer, .ev, .contact, .gallery button, .faq details').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+  $$('.place, .feat, .offer, .ev, .contact, .gallery button, .faq details').forEach(el => { el.classList.add('reveal'); io.observe(el); });
 }
 })();
