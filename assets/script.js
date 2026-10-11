@@ -38,7 +38,7 @@ const fishArt = `<svg viewBox="0 0 200 90" fill="none" stroke="#fff" stroke-widt
 $('#placesList').innerHTML = L.map(l => `
  <article class="place">
   <div class="place-img">
-   ${l.photo ? `<img src="${ph(l.photo + '-sm.jpg')}" srcset="${ph(l.photo + '-sm.jpg')} 640w, ${ph(l.photo + '.jpg')} 1280w" sizes="(max-width:860px) 100vw, 50vw" alt="${esc(l.title)}, ${esc(l.address)}" loading="lazy">`
+   ${l.photo ? `<img src="${ph(l.photo + '-sm.jpg')}" srcset="${ph(l.photo + '-sm.jpg')} 640w, ${ph(l.photo + '.jpg')} 1280w" sizes="(max-width:860px) 100vw, 50vw" alt="${esc(l.title)}, ${esc(l.address)}" loading="lazy"${l.photoPos ? ` style="object-position:${l.photoPos}"` : ''}>`
              : `<div class="place-art">${fishArt}</div>`}
    <span class="place-tag">${esc(l.short)}</span>
    ${l.rating ? `<span class="place-rate">★ ${l.rating} · ${l.reviews} отзывов</span>` : ''}
@@ -115,21 +115,35 @@ function spy() {
 renderMenu();
 
 /* ---------- галерея + лайтбокс ---------- */
+// loc: g — Горького, sc — Сергеева-Ценского, null — блюда (показываются в обоих)
+// Порядок и размеры подобраны так, чтобы сетка «Все фото» (4 колонки) заполнялась без дыр.
 const PH = [
-  {f:'veranda', c:'Веранда на Горького: том ям, салат и коктейли', cls:'wide'},
-  {f:'interior-portholes', c:'Зал с иллюминаторами', cls:'tall'},
-  {f:'seafood-assorti', c:'Ассорти морепродуктов с фирменным соусом', cls:'tall'},
-  {f:'prawns', c:'Креветки на гриле с зелёным маслом'},
-  {f:'mussels-dish', c:'Лазанья с мидиями'},
-  {f:'exterior-night', c:'Вечерний вход в Рыба Бар 2.0', cls:'wide', pos:'center 35%'},
-  {f:'hall', c:'Уютный зал с мягкими креслами', cls:'wide'}
+  {f:'veranda', c:'Веранда: том ям, салат и коктейли', loc:'g', cls:'big'},
+  {f:'interior-portholes', c:'Зал с иллюминаторами', loc:'g', cls:'tall'},
+  {f:'sc-exterior', c:'Вывеска и стая рыб на фасаде', loc:'sc', cls:'tall', pos:'center 42%'},
+  {f:'seafood-assorti', c:'Ассорти морепродуктов с фирменным соусом', loc:null, cls:'tall'},
+  {f:'prawns', c:'Креветки на гриле с зелёным маслом', loc:null},
+  {f:'sc-fish-wall', c:'Рыбы на стене в тёплом свете', loc:'sc', cls:'tall'},
+  {f:'sc-hall', c:'Столик-лодка и морские картины', loc:'sc', cls:'tall'},
+  {f:'mussels-dish', c:'Лазанья с мидиями', loc:null},
+  {f:'exterior-night', c:'Вечерний вход в Рыба Бар 2.0', loc:'g', cls:'wide', pos:'center 35%'},
+  {f:'hall', c:'Уютный зал с мягкими креслами', loc:'g', cls:'wide'}
 ];
-$('#gal').innerHTML = PH.map((p, i) => `<button type="button" class="${p.cls || ''}" data-idx="${i}"><img src="${ph(p.f + '-sm.jpg')}" alt="${esc(p.c)}" loading="lazy"${p.pos ? ` style="object-position:${p.pos}"` : ''}><span>${esc(p.c)}</span></button>`).join('');
-const lb = $('#lb'), lbImg = $('#lbImg'); let cur = 0;
-const show = i => { cur = (i + PH.length) % PH.length; lbImg.src = ph(PH[cur].f + '.jpg'); lbImg.alt = PH[cur].c; $('#lbCap').textContent = PH[cur].c; };
-const open = i => { show(i); lb.showModal ? lb.showModal() : lb.setAttribute('open', ''); };
-$('#gal').onclick = e => { const b = e.target.closest('[data-idx]'); if (b) open(+b.dataset.idx); };
-document.addEventListener('click', e => { const b = e.target.closest('[data-photo]'); if (b) open(PH.findIndex(p => p.f === b.dataset.photo)); });
+const locShort = id => byId(id)?.short || '', locTag = id => byId(id)?.tag || locShort(id);
+let view = PH;
+function renderGal(loc) {
+  view = loc === 'all' ? PH : PH.filter(p => !p.loc || p.loc === loc);
+  $('#gal').classList.toggle('filtered', loc !== 'all');
+  $('#gal').innerHTML = view.map((p, i) => `<button type="button" class="${p.cls || ''}" data-idx="${i}"><img src="${ph(p.f + '-sm.jpg')}" alt="${esc(p.c)}" loading="lazy"${p.pos ? ` style="object-position:${p.pos}"` : ''}>${p.loc ? `<em class="g-loc">${esc(locTag(p.loc))}</em>` : ''}<span>${esc(p.c)}</span></button>`).join('');
+}
+$('#galLoc').innerHTML = [['all', 'Все фото'], ...L.map(l => [l.id, l.short])].map(([id, t], i) => `<button type="button" role="tab" data-id="${id}" aria-selected="${i === 0}">${esc(t)}</button>`).join('');
+$('#galLoc').onclick = e => { const b = e.target.closest('button'); if (!b) return; $$('#galLoc button').forEach(x => x.setAttribute('aria-selected', x === b)); renderGal(b.dataset.id); };
+renderGal('all');
+const lb = $('#lb'), lbImg = $('#lbImg'); let cur = 0, lbList = PH;
+const show = i => { cur = (i + lbList.length) % lbList.length; const p = lbList[cur]; lbImg.src = ph(p.f + '.jpg'); lbImg.alt = p.c; $('#lbCap').textContent = p.c + (p.loc ? ' · ' + locShort(p.loc) : ''); };
+const open = (list, i) => { lbList = list; show(i); lb.showModal ? lb.showModal() : lb.setAttribute('open', ''); };
+$('#gal').onclick = e => { const b = e.target.closest('[data-idx]'); if (b) open(view, +b.dataset.idx); };
+document.addEventListener('click', e => { const b = e.target.closest('[data-photo]'); if (b) open(PH, PH.findIndex(p => p.f === b.dataset.photo)); });
 $('#lbX').onclick = () => lb.close(); $('#lbP').onclick = () => show(cur - 1); $('#lbN').onclick = () => show(cur + 1);
 lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
 lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
